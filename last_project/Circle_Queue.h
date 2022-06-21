@@ -205,7 +205,7 @@ bool is_full(Queue* q)
  * @todo	:void del_data 인자 추가, (q->data[i].name) char형 배열 초기화 함수(InitCharArray) 호출,
  *			 (q->data[target].name, q->data[i].name) char형 배열 대입 함수(CollegeCharArray) 호출
  */
-void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, char del_phone[MAX_PHONENUMBER_LEN], char del_grade[MAX_GRADE_LEN]) 
+void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, char del_phone[MAX_PHONENUMBER_LEN], char del_grade[MAX_GRADE_LEN]){
 	printf("삭제된 id: %d\n", del_id);
 	int cnt = 0;
 	for (int i = q->front; i <= q->rear; i = (i + 1) % MaxQueSize)
