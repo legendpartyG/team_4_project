@@ -15,6 +15,7 @@ int main()
     char grade[MAX_GRADE_LEN]; //grade: 회원등급
     person user[DataNum] = { 0 }; //DECLARE ARRANGEMENT LENGTH X //[E][수정] 구조체 배열 struct person arr >> struct person user
     person* p = user;
+
     char* userName[DataNum] = { "Harry", "David", "Liam", "Michael", "Jenney" }; //[E][추가] userName테이블;
     char* userPhone[DataNum] = { "01092928123","01044332281","01038492021","01038921230", "01036563048" }; //[E][추가] userPhone테이블 //[E][수정] 전화번호의 자리수가 int의 max(2147483647) 넘음 >> 문자열];
     int userBirth[DataNum] = { 20220210, 202220310, 20220410, 20220510, 20220610 }; //[E][추가] userBirth테이블;
@@ -27,11 +28,17 @@ int main()
     int person_cnt = 0;
     Queue q;
     init_Queue(&q);
-
+    
     for (int i = 0; i < 5; i++)
     {
+
         insert_Queue(&q, i+1, userName[i], userBirth[i], userPhone[i], userGrade[i]);
     }
+    
+    Queue_print(q);
+    delete_Queue(&q);
+    Queue_print(q);
+    del_data(&q, 3  );
     Queue_print(q);
     /*while (1)
     {

@@ -25,7 +25,7 @@
  *			 userName, userPhone, userBirth, userName 테이블
  * @bug     :전화번호의 자리수가 int의 max(2147483647) 넘음 >> 문자열
  */
-#define MAX_NAME_LEN 10 
+#define MAX_NAME_LEN 10
 #define MAX_PHONENUMBER_LEN 12  
 #define MAX_GRADE_LEN 10 
 #define MaxComfirmNum 200 
@@ -205,16 +205,12 @@ bool is_full(Queue* q)
  * @todo	:void del_data 인자 추가, (q->data[i].name) char형 배열 초기화 함수(InitCharArray) 호출,
  *			 (q->data[target].name, q->data[i].name) char형 배열 대입 함수(CollegeCharArray) 호출
  */
-void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, char del_phone[MAX_PHONENUMBER_LEN], char del_grade[MAX_GRADE_LEN]){
+void del_data(Queue* q, int del_id){
 	printf("삭제된 id: %d\n", del_id);
 	int cnt = 0;
-	for (int i = q->front; i <= q->rear; i = (i + 1) % MaxQueSize)
+	for (int i = q->front; i <= q->rear; i = (i + 1) % (MaxQueSize+1))
 	{
-		if (q->data[i].id == del_id
-			&& strcmp(q->data[i].name, del_name) == 0
-			&& q->data[i].birth == del_birth
-			&& strcmp(q->data[i].phone, del_phone) == 0
-			&& strcmp(q->data[i].grade, del_grade) == 0)
+		if (q->data[i].id == del_id)
 		{
 			q->data[i].id = 0;
 			InitCharArray(q->data[i].name); 
@@ -223,7 +219,7 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			InitCharArray(q->data[i].grade);
 			cnt++;
 		}
-		else if (cnt > 0)
+		/*else if (cnt > 0)
 		{
 			int target = i - cnt;
 			if (target < 0)
@@ -239,7 +235,7 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			q->data[i].birth = 0;
 			InitCharArray(q->data[i].phone);
 			InitCharArray(q->data[i].grade);
-		}
+		}*/
 	}
 }
 
