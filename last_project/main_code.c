@@ -27,6 +27,7 @@ int main()
     int person_cnt = 0;
     Queue q;
     init_Queue(&q);
+
     for (int i = 0; i < 5; i++)
     {
         insert_Queue(&q, i+1, userName[i], userBirth[i], userPhone[i], userGrade[i]);

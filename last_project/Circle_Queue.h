@@ -13,23 +13,23 @@
 /**
  * @brief  :원형 큐 관련 매크로.
  */
-//[G](12~16)원형 큐 관련 매크로
+
 #define True 1
 #define False 0
 #define Error -1
-#define MaxQueSize 6 //[E][수정] Max_Size >> MaxQueSize
-//[W](14~18) person구조체 배열 관련 매크로
+#define MaxQueSize 6 
+
 /**
  * @brief	:person구조체 배열 관련 매크로
  * @details :이름, 전화번호, 회원등급, 예약자 수, 테이블에 넣어진 데이터 수의 최대값을 정의
  *			 userName, userPhone, userBirth, userName 테이블
  * @bug     :전화번호의 자리수가 int의 max(2147483647) 넘음 >> 문자열
  */
-#define MAX_NAME_LEN 10 //name MAXIMUM LENGTH 
-#define MAX_PHONENUMBER_LEN 12  //phone MAXIMUM LENGTH
-#define MAX_GRADE_LEN 10 //grade MAXIMUM LENGTH
-#define MaxComfirmNum 200 //[E][추가] 최대 예약자수
-#define DataNum 5 //[E][추가] 테이블에 넣어진 데이터 수
+#define MAX_NAME_LEN 10 
+#define MAX_PHONENUMBER_LEN 12  
+#define MAX_GRADE_LEN 10 
+#define MaxComfirmNum 200 
+#define DataNum 5 
 
 
  /**
@@ -40,8 +40,8 @@
 typedef struct person { //DEFINE STRUCT(person) //[G,W][원본][E][수정] Circle_Queue.h의 기존 struct element 과 struct person 통합
 	int id;
 	char name[MAX_NAME_LEN];
-	int birth; //[E][수정] 정수배열 불필요
-	char phone[MAX_PHONENUMBER_LEN]; //[E][수정] pn >> phone
+	int birth; 
+	char phone[MAX_PHONENUMBER_LEN]; 
 	char grade[MAX_GRADE_LEN];
 }person;
 
@@ -49,7 +49,7 @@ typedef struct person { //DEFINE STRUCT(person) //[G,W][원본][E][수정] Circle_Qu
  * @brief	:각 유저정보 테이블에 있는 값을 person[i]의 각 원소에 대입하는 함수
  */
 
-void SetUserData(person* p, int id, char name[DataNum], int birth[DataNum], char phone[DataNum], char grade[DataNum]) { //[E][추가] 각 유저정보 테이블에 있는 값을 person[i]의 각 원소에 대입하는 함수
+void SetUserData(person* p, int id, char name[DataNum], int birth[DataNum], char phone[DataNum], char grade[DataNum]) { 
 	for (int i = 0; i < DataNum; i++)
 	{
 		p[i].id = i;
