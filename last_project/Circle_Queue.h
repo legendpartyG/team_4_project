@@ -37,7 +37,7 @@
   * @details :Circle_Queue.h의 기존 struct element 과 struct person 통합
   * @todo    :birth정의 수정(정수형 배열 필요x)
   */
-typedef struct person { //DEFINE STRUCT(person) //[G,W][원본][E][수정] Circle_Queue.h의 기존 struct element 과 struct person 통합
+typedef struct person { 
 	int id;
 	char name[MAX_NAME_LEN];
 	int birth; 
@@ -165,9 +165,9 @@ void insert_Queue(Queue* q, int id, char name[MAX_NAME_LEN], int birth, char pho
 	}
 	else
 	{
-		q->rear = (q->rear + 1) % (MaxQueSize); //front+1이 최댓값이면 0으로 돌아가라
+		q->rear = (q->rear + 1) % (MaxQueSize); 
 		q->data[q->rear].id = id;
-		CollegeCharArray(q->data[q->rear].name, name); //[E][수정] char형 배열 대입 함수 호출
+		CollegeCharArray(q->data[q->rear].name, name); 
 		q->data[q->rear].birth = birth;
 		CollegeCharArray(q->data[q->rear].phone, phone);
 		CollegeCharArray(q->data[q->rear].grade, grade);
@@ -218,7 +218,7 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			&& strcmp(q->data[i].grade, del_grade) == 0)
 		{
 			q->data[i].id = 0;
-			InitCharArray(q->data[i].name); //[E][수정] char형 배열 초기화 함수 호출
+			InitCharArray(q->data[i].name); 
 			q->data[i].birth = 0;
 			InitCharArray(q->data[i].phone);
 			InitCharArray(q->data[i].grade);
@@ -230,13 +230,13 @@ void del_data(Queue* q, int del_id, char del_name[MAX_NAME_LEN], int del_birth, 
 			if (target < 0)
 				target += MaxQueSize;
 			q->data[target].id = q->data[i].id;
-			CollegeCharArray(q->data[target].name, q->data[i].name); //[E][수정] char형 배열 대입 함수 호출
+			CollegeCharArray(q->data[target].name, q->data[i].name); 
 			q->data[target].birth = q->data[i].birth;
 			CollegeCharArray(q->data[target].phone, q->data[i].phone);
 			CollegeCharArray(q->data[target].grade, q->data[i].grade);
 
 			q->data[i].id = 0;
-			InitCharArray(q->data[i].name); //[E][수정] char형 배열 초기화 함수 호출
+			InitCharArray(q->data[i].name); 
 			q->data[i].birth = 0;
 			InitCharArray(q->data[i].phone);
 			InitCharArray(q->data[i].grade);
@@ -255,7 +255,7 @@ void Queue_print(Queue q)
 	do {
 		i = (i + 1) % MaxQueSize;
 		printf("대기자 id : %d   ||", q.data[i].id);
-		printf("   대기자 이름 : %s", q.data[i].name); //[E][추가](222~225)각 char형 배열, int형 변수 출력 
+		printf("   대기자 이름 : %s", q.data[i].name); 
 		printf("   ||   대기자 생년월일 : %d", q.data[i].birth);
 		printf("   ||   대기자 연락처 : %s", q.data[i].phone);
 		printf("   ||   대기자 등급 : %s", q.data[i].grade);
